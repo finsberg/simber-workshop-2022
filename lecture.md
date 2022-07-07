@@ -80,6 +80,8 @@ If you have suggestions for improving the user experience please let me know :)
 * Double click on the binary executable
 * This files comes with python bundled inside it
 * It will take some time to start up
+* It will open a small web browser window (Google chrome)
+* If this window is not responding you can just open any web browser and go to the url <localhost:8004>
 
 ---
 
