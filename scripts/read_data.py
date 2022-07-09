@@ -18,47 +18,49 @@ path = "/Users/finsberg/Dropbox/Simber/data/20220105_omecamtiv_chipB/control_108
 
 data = mps.MPS(path)
 
-# This will create an object the allow us to read the recording as well as metadata stored within the file. 
-#
-# You can list the available methods on this object using the `dir` method
-
-# dir(data)
-
-# And if you are working in a notebook you can also type `data.` and hit the `TAB` key.
+# This will create an object the allow us to read the recording as well as metadata stored within the file.
 #
 # Lets print the data object
 
-print(data)
+print("data = ", data)
+
+# We can aslo use a bit more convenient way to print this in python using f-strings
+
+print(f"{data = }")
+
+# You can list the available methods on this object using the `dir` method
+# And if you are working in a notebook you can also type `data.` and hit the `TAB` key.
+
+print(f"{dir(data) = }")
 
 # Now lets print the info attribute which will list some basic info about the data
 
-print(data.info)
+print(f"{data.info = }")
 
 # If you want a little bit nicer looking output you can also use the pretty printer in python
 
 import pprint
+
 pprint.pprint(data.info)
 
 # The actual frames are stored as the attribute `.frames`. This will be a numpy array of shape `(size_x, size_y, num_frames)`
 
-data.frames.shape
+print(f"{data.frames.shape = }")
 
 # The frames contains pixel intensities that are typically stored as 16-bits unsigned integers (uint16)
 
-data.frames
+print(f"{data.frames = }")
 
 # The time stamps are stored in the attribute `time_stamps` as a numpy array of length `num_frames`
 
-data.time_stamps.shape
+print(f"{data.time_stamps.shape = }")
 
-data.time_stamps
+print(f"{data.time_stamps = }")
 
 # If the cells are paced then this information might be stored in the metadata of the recording. In this case this will be extracted in the attribute `pacing` which will also be a numpy array of length `num_frames`.
 
-data.pacing.shape
+print(f"{data.pacing.shape = }")
 
-data.pacing
+print(f"{data.pacing = }")
 
 # If the cell is not paced, or there is no information about the pacing stored within the recording, then this array will only contain zeros.
-
-
