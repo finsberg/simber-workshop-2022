@@ -41,7 +41,6 @@ Department of Computational Physiology (Simula)
 
 ---
 
-
 ## Prerequisites
 
 Software and data
@@ -65,13 +64,34 @@ If you have suggestions for improving the user experience please let me know :)
 ## What is the MPS database?
 
 * A graphical user interface for analyzing and organizing MPS data
-* It was built to run on a server
-* It connects to to a database
-* It has a web frontend
-* It also has a REST API
-* It has been packaged into a single binary that can run on your laptop
 
-![bg right](figures/architecture.png)
+----
+
+
+## Why do we need this application?
+
+**Examples**
+  
+* You run an experiment with different chips and different different doses of a drug and would like to analyze the data for a drug effect.
+
+* You have data from different experiments with different cell lines and would like to compare the control chips.
+
+* You want to find all experiments using a specific drug / cell line.
+
+* You want to run analysis of EP and mechanics.
+
+---
+
+## Why do we need this application?
+
+* Organization
+  > Being able to query the database and find data that meets specific requirements.
+
+* Analysis
+  > Being able to easily analyze data across different experiments.
+
+* Simple interface for analysis
+  > Having a graphical user interface for performing analysis. 
 
 ---
 
@@ -102,6 +122,13 @@ If you have suggestions for improving the user experience please let me know :)
 - There are two important links here: `Search` and `Upload`
 
 ![bg right:60% contain](figures/database_home.png)
+
+---
+
+## Steps for adding data to the database
+
+
+![h:350 center](figures/adding_data.png)
 
 ---
 
@@ -139,12 +166,20 @@ If you try to add a root path that doesn't exist, you will get an error
 
 ---
 
-## Now you should be able to add a new experiment
+## Listing available experiments
 
 - You might need to refresh the page
 - Clicking on "Directory path" under "Add experiment" should list all potential experiments
 
 ![bg right:60% contain](figures/database_upload_add_experiement_list_experiements.png)
+
+---
+
+
+## Steps for adding data to the database
+
+
+![h:350 center](figures/adding_data.png)
 
 ---
 
@@ -220,6 +255,7 @@ rules:
   - 'drug_dict = {"Ver": "Verapamil", "Fle": "Flecainide"}; drug = drug_dict[drug_]'
 
 ```
+These rules as essentially python code that is evaluated (so don't put any dangerous code there)
 
 ---
 
@@ -249,10 +285,37 @@ We will get an error message saying that there is no drug called omecamtive in t
 
 ---
 
+## Your turn!
+
+- Try adding the experiment `20211126_bayK_chipB`
+
+
+---
+
+
+## Example config file
+
+- Name: `20211126_bayK_chipB.yaml`
+- Content
+  ```yaml
+  patterns:
+  - '{dose}_{run}/{date}-{dye}-{drug}_Stream_B01_s1_{channel}-Stream.tif'
+  - '{dose}_{run}/{date}-{dye}-{drug}_Stream_B01_s1_{channel}.tif'
+
+  ```
+- Need to add BayK drug first
+
+---
+
 
 ## Relationships in the database
 
-![center contain](figures/database_ER_diagram.png)
+- Each colored box represents a table in the database
+- Arrows between these boxes indicate relations
+- Numbers on arrows indicate type of relation
+  > For example an MPSDATA is part of only 1 EXPERIMENT, but 1 EXPERIMENT can contain many (N) MPSDATA
+
+![bg right:40% contain](figures/database_tables.png)
 
 ---
 
@@ -324,3 +387,45 @@ Here you can specify different options for analyzing the motion
 
 ![h:300 center](figures/database_plot1.png)
 ![bg right:45% contain](figures/database_plot2.png)
+
+---
+
+## Exercise - plotting traces
+
+- Select an experiment and plot the APD for voltage for different doses
+
+![bg right:65% contain](figures/plot_traces.png)
+
+---
+
+## Heatmaps
+
+You can plot heatmaps of max, min, mean and median values over all time steps for pixel and displacement
+
+![bg right:65% contain](figures/heatmaps.png)
+
+---
+
+## Perform local analysis
+
+![h:300 center](figures/local1.png)
+![bg right:45% contain](figures/local2.png)
+
+---
+
+## Look at the movie
+
+![h:300 center](figures/movie1.png)
+![bg right:45% contain](figures/movie2.png)
+
+---
+
+## Overview of the Architecture
+
+* It was built to run on a server
+* It connects to to a database
+* It has a web frontend
+* It also has a REST API
+* It has been packaged into a single binary that can run on your laptop
+
+![bg right](figures/architecture.png)
