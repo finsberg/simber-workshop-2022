@@ -98,7 +98,11 @@ If you have suggestions for improving the user experience please let me know :)
 ## How to start it?
 
 * Double click on the binary executable
-* This files comes with python bundled inside it
+  > Unix users should open the terminal and first make the file executable, e.g
+  ```
+  chmod +x mps_database_MacOSX
+  ```
+* This files comes with python bundled inside it so you don't need to install anything to make it work.
 * It will take some time to start up
 * It will open a small web browser window (Google chrome)
 * If this window is not responding you can just open any web browser and go to the url <localhost:8004>
@@ -414,6 +418,8 @@ You can plot heatmaps of max, min, mean and median values over all time steps fo
 ---
 
 ## Look at the movie
+
+- It this is not working then you need to install ffmpeg first.
 
 ![h:300 center](figures/movie1.png)
 ![bg right:45% contain](figures/movie2.png)
