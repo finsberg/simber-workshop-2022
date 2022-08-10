@@ -1,17 +1,3 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.13.8
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-# ---
-
 # # Extracting a trace from the frames and analyze it
 #
 # In this session we will learn how go from the raw images to a trace that we later will analyze. First lets load some data
@@ -252,3 +238,45 @@ print(f"{cAPD80 = }")
 #
 # Look up the documentation and try to understand what these features are and try to see it the values you get make sense.
 #
+
+# ## Extracting traces from subregions of the chip
+#
+# Now we will briefly discuss how to automatically extract traces from different regions of the chip. In the next session you will get a more thorough explanation on how to do this.
+#
+# For reference, let us plot the first frame from the data
+
+fig, ax = plt.subplots(figsize=(15, 4))
+plt.imshow(data.frames[:, :, 0].T)
+print(data.frames.shape)
+
+# Now we will use a methods from the mps package to extract averages from different subregions.
+
+loc = mps.analysis.local_averages(
+    data.frames, times=data.time_stamps, N=15, background_correction=True
+)
+
+# We specify some number `N` (here we chose 15) which will be the number of regions along the major axis of the chip. The algorithm will then subdivide the chip into squares (i.e width equal height and width) and choose the number of regions along the minor axis such that the regions cover the chip.
+#
+# We can take a look at the shape of this array
+
+print(loc.shape)
+
+# The last dimension will be the number of time steps.
+#
+# We can plot all the traces at their spatial location in a large subplot as follow
+
+fig, ax = plt.subplots(
+    loc.shape[1], loc.shape[0], sharex=True, sharey=True, figsize=(15, 6)
+)
+for i in range(loc.shape[0]):
+    for j in range(loc.shape[1]):
+        ax[j, i].plot(data.time_stamps, loc[i, j, :])
+plt.show()
+
+# Or we can plot them all in the same plot (here we just plot the mid regions
+
+fig, ax = plt.subplots(figsize=(15, 8))
+for i in range(loc.shape[0]):
+    ax.plot(data.time_stamps, loc[i, 1], label=f"region {i}")
+ax.legend(bbox_to_anchor=(1, 0.5), loc="center left")
+plt.show()

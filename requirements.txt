@@ -4,3 +4,5 @@ jupytext
 jupyter
 matplotlib
 numpy
+Pillow
+opencv-python

@@ -15,6 +15,9 @@
 #
 # - [Importing a file using the mps library and printing some info about it](read_data.ipynb)
 # - [Extracting a trace from the frames and analyze it](analyze_trace.ipynb)
+# - [Running command line scripts](cli_scripts.ipynb)
 #
 # ## Python scripts
 # All notebooks as also available as pure python scripts in the [scripts](scripts) folder
+
+
