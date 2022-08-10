@@ -72,7 +72,7 @@ If you have suggestions for improving the user experience please let me know :)
 
 **Examples**
   
-* You run an experiment with different chips and different different doses of a drug and would like to analyze the data for a drug effect.
+* You run an experiment with different chips and different doses of a drug and would like to analyze the data for a drug effect.
 
 * You have data from different experiments with different cell lines and would like to compare the control chips.
 
@@ -225,7 +225,7 @@ These names are
 
 * Try to make a simple file structure with only one common pattern
 * The program will loop through all files in the experiment folder and try to match the patterns
-* If you need more that one pattern, the program with start with the first pattern (on the top) and continue until it finds a pattern that match. Note that one file might match several patterns. For example all files in the example folder will match the following pattern `{run}.tif`.
+* If you need more that one pattern, the program with start with the first pattern (on the top) and continue until it finds a pattern that match. Note that one file might match several patterns. For example all files in the example folder will match the following pattern `{run}.tif`, so you want to place the most specific pattern on top.
 * If one file doesn't match any pattern you will get an error
 
 ---
@@ -237,7 +237,7 @@ Say that you have a folder called `failedChips` and `failedChips2`. Then you cou
 
 ```
 patterns:
-- '{dose}_{run}/{date}-{dye}-{drug}_Stream_B01_s1_{channel}-Strea.tif'
+- '{dose}_{run}/{date}-{dye}-{drug}_Stream_B01_s1_{channel}-Stream.tif'
 excludes:
 - 'failedChips'
 - 'failedChips2'
@@ -340,7 +340,17 @@ We will get an error message saying that there is no drug called omecamtive in t
 
 ## We can search through experiments
 
+* Also here it might be relevant to add info about an experiment
+* Show example from database at Simula server?
+
 ![bg right:60% contain](figures/database_search_experiment1.png)
+
+---
+
+## Question to think about
+
+* Currently the info you add about the experiment is a simple text file, but we might want to make some more specific fields for this so that it is easier to search for in the future.
+* What type of fields would be relevant?
 
 ---
 
@@ -396,7 +406,8 @@ Here you can specify different options for analyzing the motion
 
 ## Exercise - plotting traces
 
-- Select an experiment and plot the APD for voltage for different doses
+- Select an experiment and plot the traces for voltage for different doses. Make sure to align them at the upstroke and label them by dose.
+- Try plotting APDs for each trace.
 
 ![bg right:65% contain](figures/plot_traces.png)
 
@@ -426,10 +437,20 @@ You can plot heatmaps of max, min, mean and median values over all time steps fo
 
 ---
 
+## Export results
+
+- All data is stored in a sqlite file called `mps_database.db` in your home directory which you can open with e.g [DB Browser for SQLite](https://sqlitebrowser.org/dl/)
+- You can also export a selection of the data to Excel using the `Export data` button
+- Or export all data to a json file using the `Download json data` button.
+
+![bg right:45% contain](figures/export_data.png)
+
+---
+
 ## Overview of the Architecture
 
 * It was built to run on a server
-* It connects to to a database
+* It connects to a database
 * It has a web frontend
 * It also has a REST API
 * It has been packaged into a single binary that can run on your laptop
