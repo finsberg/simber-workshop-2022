@@ -49,7 +49,7 @@ y = data.frames.mean(axis=(0, 1))
 
 # Here we pass in `axis=(0, 1)` to indicate that we should take the average over the first and second dimension.
 #
-# Lets plot the trace againts the time stamps.
+# Lets plot the trace against the time stamps.
 
 fig, ax = plt.subplots(figsize=(8, 4))
 ax.plot(data.time_stamps, y)
@@ -74,11 +74,11 @@ ax.set_ylabel("Mean pixel intensity")
 # ```
 # will take out a region in (approximately) the center of the chip.
 #
-# * Try to perform the averaging over a smaller region, and plot the trace. Does the shape and amplitude chage?
+# * Try to perform the averaging over a smaller region, and plot the trace. Does the shape and amplitude change?
 
 # ## Removing the baseline
 #
-# The first thing we need to do is to remove the baseline so that the effect of photobleaching is removed. To do this we will use the `ap_feaures` package, by converting the trace into a `ap_features` object.
+# The first thing we need to do is to remove the baseline so that the effect of photobleaching is removed. To do this we will use the `ap_features` package, by converting the trace into a `ap_features` object.
 
 # +
 import ap_features as apf
@@ -130,7 +130,7 @@ fig, ax = plt.subplots()
 for beat in beats:
     ax.plot(beat.t, beat.y)
 
-# As we can see, there are some gaps in the trace. This is due to the way the trace is chopped. There are two different algorithms for chopping the trace into individual beats. The first algorithm is used when we have pacing information available, in which case the algorthim will use the time of the pacing stimuls as a marker to chop. In this case we do not have this information and in this case the algorithm is a bit more complicated. You can read more about the algorithm in the `ap_features` documentation: https://computationalphysiology.github.io/ap_features/ap_features.html#ap_features.chopping.chop_data_without_pacing
+# As we can see, there are some gaps in the trace. This is due to the way the trace is chopped. There are two different algorithms for chopping the trace into individual beats. The first algorithm is used when we have pacing information available, in which case the algorithm will use the time of the pacing stimulus as a marker to chop. In this case we do not have this information and in this case the algorithm is a bit more complicated. You can read more about the algorithm in the `ap_features` documentation: https://computationalphysiology.github.io/ap_features/ap_features.html#ap_features.chopping.chop_data_without_pacing
 #
 #
 # ### Exercise: Changing the settings for chopping
@@ -163,7 +163,7 @@ print(f"{second_beat = }")
 
 second_beat.plot()
 
-# Lets aslo take a look at the available methods by print the attributes that does not start with and underscore (or by typing `second_beat.` and hitting TAB)
+# Lets also take a look at the available methods by print the attributes that does not start with and underscore (or by typing `second_beat.` and hitting TAB)
 
 import pprint
 

@@ -1,12 +1,12 @@
 # Running command line scripts
 
-In this notebook we will go through some of the command line script that comes with the `cardiac-mps` package. These are useful if you want to analaze on or many files from the terminal.
+In this notebook we will go through some of the command line script that comes with the `cardiac-mps` package. These are useful if you want to analyze on or many files from the terminal.
 
 ## Running the scripts
 
 When you install the `cardiac-mps` package it will also install the the different scripts. There are three ways you can run these scripts:
 
-- By executing the `cardiac-mps` package as a modulde
+- By executing the `cardiac-mps` package as a module
     ```
     python -m mps <script command>
     ```
@@ -95,7 +95,7 @@ python -m mps mps2mp4 file.nd2
 and it will create a new `.mp4` with the same name as the imaging file.
 
 
-### Run flourescense analysis using `mps-analyze`
+### Run fluorescence analysis using `mps-analyze`
 
 If you have an imaging file you might want to run a number of different analysis operations on it. The `mps-analyze` script takes as input an imaging file and output a folder with figures and spreadsheets.
 
@@ -210,7 +210,7 @@ For easy reference we also provide this description below
 
 
 
-### Gettting a summary of all files in a folder using `mps-summary`
+### Getting a summary of all files in a folder using `mps-summary`
 
 If you have a folder containing several imaging files, then you can run `mps-summary` to get one figure with all the traces and one spreadsheet with some summary statistics.
 
@@ -233,7 +233,7 @@ mps-summary --help
 
 ### Running motion analysis using `mps-motion`
 
-The motion script doesn't come with the `cardiac-mps` package and has to be installed separatelty. Plase check outalso have installed the [motion tracking script](https://github.com/ComputationalPhysiology/mps_motion_tracking) should should be able to also run
+The motion script doesn't come with the `cardiac-mps` package and has to be installed separately. Please check out the [motion tracking repository](https://github.com/ComputationalPhysiology/mps_motion_tracking) for more info about how it install it. Once installed you should should be able to also run
 
 ```
 python -m mps motion file.nd2

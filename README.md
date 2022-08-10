@@ -1,6 +1,6 @@
 # Lecture notes for Simber coding workshop
 
-In this repo you will find the [slides for the MPS database tutorial](lecture.md) and the [notebooks](notebooks) for the coding session.
+In this repo you will find instructions for how to set up your computer for the coding session as well as the [slides for the MPS database tutorial](lecture.md) and the [notebooks](notebooks) for the coding session.
 
 
 ## Setting up you environment for the coding session
@@ -8,7 +8,7 @@ In this repo you will find the [slides for the MPS database tutorial](lecture.md
 
 ### Installing python
 
-Before installing any packages you need to make sure that you have python installed. You can get a python installer from [python.org/downloads](https://www.python.org/downloads/). You can also install python using a packacke manager. For example `apt` on Debian, `brew` on Mac and `chocolatey` on Windows. On Windows you can also install python through Microsoft store.
+Before installing any packages you need to make sure that you have python installed. You can get a python installer from [python.org/downloads](https://www.python.org/downloads/). You can also install python using a package manager. For example `apt` on Debian, `brew` on Mac and `chocolatey` on Windows. On Windows you can also install python through Microsoft store.
 
 Make sure to check off the tick box where it says "Add python to PATH". That way python will accessible from the command line
 
@@ -16,7 +16,7 @@ Make sure to check off the tick box where it says "Add python to PATH". That way
 To run python you first need to open a terminal
 
 #### Windows
-Open the start menu and search for `CMD`. `CMD` is the most basic terminal on Windows. Another option is PowerShell which is also usually allready installed. I would recommend to install [Windows terminal](https://docs.microsoft.com/en-us/windows/terminal/) which has many more features.
+Open the start menu and search for `CMD`. `CMD` is the most basic terminal on Windows. Another option is PowerShell which is also usually already installed. I would recommend to install [Windows terminal](https://docs.microsoft.com/en-us/windows/terminal/) which has many more features.
 
 #### Mac
 To open a terminal on Mac hit `CMD+SPACE` and type terminal.
@@ -48,14 +48,14 @@ python -m venv env
 ```
 This will create a new folder called `env` containing a link to python and all your dependencies. If you at some later point mess up your installation you can safely delete this folder and start over again. If you had installed your dependencies on your global system you would be in more trouble.
 
-If you are working on a different project, then you can just make a new virtual enviornment for example
+If you are working on a different project, then you can just make a new virtual environment for example
 ```
 python -m venv env2
 ```
 will make a different folder valled `env2` 
 
 #### Activate a virtual environment
-Before you can start using a virtual environement you need to activate it.
+Before you can start using a virtual environnement you need to activate it.
 
 On Unix (Mac and Linux) you can do so using the following command
 ```
@@ -88,7 +88,7 @@ All dependencies you need for the coding session is listed in the [`requirements
 python -m pip install -r requirements.txt
 ```
 
-#### Deactivating the virtual environement
+#### Deactivating the virtual environnement
 When you are done working in python, or you want to work on another python project you should deactivate the virtual environment. You can do so by executing the command
 ```
 deactivate
