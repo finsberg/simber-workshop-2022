@@ -8,12 +8,31 @@ First thing we need to do is to import the mps library
 import mps
 ```
 
-Next thing we need to do is to specify the path to the file we want to open. Change the string below to the path to the file you want to open.
-
-Note that the path separator is different on Windows and Unix (Linux/Mac). If you are on Windows, the path will typically by something like `C:\Users\Henrik\Documents\file.tif` (i.e with `\` as separator), while on Unix the path will be similar to the example below.
+Next thing we need to do is to specify the path to the file we want to open. 
+If you have already have some data you can use that (in this case change the string below to the path to the file you want to open), otherwise you can download some sample data
 
 ```python
-path = "/Users/finsberg/Dropbox/Simber/data/20220105_omecamtiv_chipB/control_10850/20220105-80GCaMP20HCF-omecamtiv_Stream_B01_s1_TL-20-Stream.tif"
+from pathlib import Path
+
+path = Path("data.tif")
+```
+
+```python
+def download_data():
+    print("Downloading data. Please wait...")
+    link = "https://www.dropbox.com/s/ub2d44axwxtyi2g/20220105-80GCaMP20HCF-omecamtiv_Stream_B01_s1_TL-20-Stream.tif?dl=1"
+    import urllib.request
+    import time
+
+    urllib.request.urlretrieve(link, path)
+    time.sleep(1.0)
+    print("Done downloading data")
+```
+
+```python
+# Download the data if file does not exist
+if not path.is_file():
+    download_data()
 ```
 
 The `mps` pacakge can read various file formats including `.tif`, `.stk`, `.nd2` and `.czi`.

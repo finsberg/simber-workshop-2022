@@ -6,3 +6,6 @@ matplotlib
 numpy
 Pillow
 opencv-python
+scipy
+ipywidgets
+ipython
