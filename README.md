@@ -2,6 +2,11 @@
 
 In this repo you will find instructions for how to set up your computer for the coding session as well as the [slides for the MPS database tutorial](lecture.md) and the [notebooks](notebooks) for the coding session.
 
+## Running notebooks with Binder
+
+If you don't want to set up your environment you can also run the notebooks using Binder. Click the Binder button below in order to run the notebooks directly in Binder
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/finsberg/simber-workshop-2022/HEAD?labpath=%2Fnotebooks%2Findex.ipynb)
 
 ## Setting up you environment for the coding session
 
