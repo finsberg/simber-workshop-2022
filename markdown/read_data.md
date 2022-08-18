@@ -8,7 +8,7 @@ First thing we need to do is to import the mps library
 import mps
 ```
 
-Next thing we need to do is to specify the path to the file we want to open. 
+Next thing we need to do is to specify the path to the file we want to open.
 If you have already have some data you can use that (in this case change the string below to the path to the file you want to open), otherwise you can download some sample data
 
 ```python
@@ -17,10 +17,11 @@ from pathlib import Path
 path = Path("data.tif")
 ```
 
+
 ```python
 def download_data():
     print("Downloading data. Please wait...")
-    link = "https://www.dropbox.com/s/ub2d44axwxtyi2g/20220105-80GCaMP20HCF-omecamtiv_Stream_B01_s1_TL-20-Stream.tif?dl=1"
+    link = "https://www.dropbox.com/s/gowdo5t8c78mtkh/data.tif?dl=1"
     import urllib.request
     import time
 

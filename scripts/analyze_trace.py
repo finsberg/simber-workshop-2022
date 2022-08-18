@@ -9,16 +9,18 @@ from pathlib import Path
 # If you have already have some data you can use that, otherwise you can download some sample data
 path = Path("data.tif")
 
+
 def download_data():
     print("Downloading data. Please wait...")
-    link = "https://www.dropbox.com/s/ub2d44axwxtyi2g/20220105-80GCaMP20HCF-omecamtiv_Stream_B01_s1_TL-20-Stream.tif?dl=1"
+    link = "https://www.dropbox.com/s/gowdo5t8c78mtkh/data.tif?dl=1"
     import urllib.request
     import time
 
     urllib.request.urlretrieve(link, path)
     time.sleep(1.0)
     print("Done downloading data")
-    
+
+
 if not path.is_file():
     download_data()
 
