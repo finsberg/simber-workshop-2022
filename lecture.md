@@ -347,14 +347,6 @@ We will get an error message saying that there is no drug called omecamtive in t
 
 ---
 
-## Question to think about
-
-* Currently the info you add about the experiment is a simple text file, but we might want to make some more specific fields for this so that it is easier to search for in the future.
-* What type of fields would be relevant?
-
----
-
-
 ## We can search through the individual video files
 
 * There are several options to filter the search

@@ -130,7 +130,7 @@ fig, ax = plt.subplots()
 ax.plot(trace.t, delta_F / F_0)
 
 # ### Exercise: Other types of background corrections
-# TBW
+# Take a look at the documentation and see if you can find out which other background correction methods there is and try them out.
 
 # ## Chopping a trace into individual beats
 #
